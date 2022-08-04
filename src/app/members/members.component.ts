@@ -13,11 +13,20 @@ export class MembersComponent implements OnInit {
   member: Member = {
     id:   1,
     name: 'Tanaka'
-  }
+  };
+
+  selectedMemnber: Member = {
+    id:   1,
+    name: 'Tanaka'
+  };
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(member: Member): void {
+    this.selectedMemnber = member;
   }
 
 }
