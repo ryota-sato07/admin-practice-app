@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Member } from '../member';
+import { Member }                   from '../member';
 
 @Component({
   selector: 'app-member-detail',
@@ -7,10 +7,7 @@ import { Member } from '../member';
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  @Input() member: Member = {
-    id:   1,
-    name: 'Tanaka'
-  };
+  @Input() member?: Member;
 
   constructor() { }
 
