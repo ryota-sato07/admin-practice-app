@@ -6,7 +6,7 @@
       [class.selected]="member === selectedMemnber"
       (click)="onSelect(member)"
     >
-      <span class="badge">{{ member.id }}</span>{{ member.name }}
+      <span class="badge">{{ member.id }}</span>{{ member.position }}： {{ member.name }}
     </li>
   </ul>
 
