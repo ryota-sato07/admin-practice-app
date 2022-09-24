@@ -12,7 +12,6 @@ import { MemberService }            from '../member.service';
 })
 export class MemberDetailComponent implements OnInit {
   @Input() member?: Member;
-  // member: Member | undefined;
 
   constructor(
     private route:         ActivatedRoute,
