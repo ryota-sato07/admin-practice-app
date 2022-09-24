@@ -24,6 +24,7 @@ export class InMemoryDataService implements InMemoryDbService {
     return { members };
   }
 
+  // id のインクリメントのためのメソッド
   genId(members: Member[]): number {
     return members.length > 0 ? Math.max(...members.map(member => member.id)) + 1 : 11;
   }

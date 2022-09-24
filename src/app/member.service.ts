@@ -20,9 +20,31 @@ export class MemberService {
     private messageService: MessageService
   ) { }
 
+  //-- [ Methods ] -------------------------------------------------------------
   getMembers(): Observable<Member[]> {
-    this.messageService.add('MessageService: 社員一覧データを取得しました');
-    return of(MEMBERS);
+    return this.http.get<Member[]>(this.membersUrl)
+      .pipe(
+        tap(members => this.log('社員データを取得しました')),
+        catchError(this.handleError<Member[]>('getMembers', []))
+      )
+  }
+
+  getMember(id: number): Observable<Member> {
+    const url = `${this.membersUrl}/${id}`;
+    return this.http.get<Member>(url)
+      .pipe(
+        tap(_ => this.log(`社員データ(id=${id})を取得しました`)),
+        catchError(this.handleError<Member>(`getMember id=${id}`))
+      );
+  }
+
+  //-- [ Methods ] -------------------------------------------------------------
+  updateMember(member: Member): Observable<any> {
+    return this.http.put(this.membersUrl, member, this.httpOptions)
+      .pipe(
+        tap(_ => this.log(`社員データ(id=${member.id})を変更しました`)),
+        catchError(this.handleError<any>('updateMember'))
+      );
   }
 
   deleteMember(member: Member | number): Observable<Member> {
@@ -36,6 +58,7 @@ export class MemberService {
       );
   }
 
+  //-- [ Methods ] -------------------------------------------------------------
   private log(message: string) {
     this.messageService.add(`MemberService: ${message}`);
   }
