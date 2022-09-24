@@ -10,16 +10,11 @@ import { MemberService }     from '../member.service';
 export class MembersComponent implements OnInit {
 
   members: Member[] = [];
-  selectedMemnber?: Member;
 
   constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
     this.getMembers();
-  }
-
-  onSelect(member: Member): void {
-    this.selectedMemnber = member;
   }
 
   getMembers(): void {
