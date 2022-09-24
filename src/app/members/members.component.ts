@@ -27,4 +27,10 @@ export class MembersComponent implements OnInit {
       .subscribe(members => this.members = members)
   }
 
+  // 削除したメンバー以外のデータを返す
+  onDelete(member: Member): void {
+    this.members = this.members.filter(m => m !== member);
+    this.memberService.deleteMember(member).subscribe();
+  }
+
 }
