@@ -22,6 +22,15 @@ export class MembersComponent implements OnInit {
       .subscribe(members => this.members = members)
   }
 
+  add(name: string, position: string): void {
+    name = name.trim();
+    if (!name || !position) { return; }
+    this.memberService.addMember({ name, position } as Member)
+      .subscribe(member => {
+        this.members.push(member);
+    });
+  }
+
   // 削除したメンバー以外のデータを返す
   onDelete(member: Member): void {
     this.members = this.members.filter(m => m !== member);
