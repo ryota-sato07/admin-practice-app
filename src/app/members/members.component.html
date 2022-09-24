@@ -6,7 +6,11 @@
       [class.selected]="member === selectedMemnber"
       (click)="onSelect(member)"
     >
-      <span class="badge">{{ member.id }}</span>{{ member.position }}： {{ member.name }}
+      <div class="info">
+        <span class="badge">{{ member.id }}</span>
+        <span>{{ member.position }}： {{ member.name }}</span>
+      </div>
+      <button class="delete" title="削除ボタン" (click)="onDelete(member)">x</button>
     </li>
   </ul>
 
