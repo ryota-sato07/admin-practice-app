@@ -39,6 +39,14 @@ export class MemberService {
   }
 
   //-- [ Methods ] -------------------------------------------------------------
+  addMember(member: Member): Observable<Member> {
+    return this.http.post<Member>(this.membersUrl, member, this.httpOptions)
+      .pipe(
+        tap((newMember: Member) => this.log(`社員データ(id=${newMember.id})を追加しました`)),
+        catchError(this.handleError<Member>('addMember'))
+      );
+  }
+
   updateMember(member: Member): Observable<any> {
     return this.http.put(this.membersUrl, member, this.httpOptions)
       .pipe(
