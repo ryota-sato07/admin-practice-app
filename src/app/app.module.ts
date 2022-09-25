@@ -11,6 +11,8 @@ import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { MessagesComponent }     from './messages/messages.component';
 import { AppRoutingModule }      from './app-routing.module';
 import { DashboardComponent }    from './dashboard/dashboard.component';
+import { MemberSearchComponent } from './member-search/member-search.component';
+import { NotfoundComponent }     from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DashboardComponent }    from './dashboard/dashboard.component';
     MembersComponent,
     MemberDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    MemberSearchComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
